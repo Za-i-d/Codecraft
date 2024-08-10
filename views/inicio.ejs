@@ -1,0 +1,14 @@
+<%- include("templates/encabezado")%>
+    <div class="container">
+        <div class="container-inicio">
+            <% if (isNewUser) { %>
+                <h2>Bienvenido a CodeCraft, <%= usuario.nom_usu %>!!</h2>
+                <p>Estamos muy felices que empieces a descubrir este maravilloso mundo de la programación</p>
+            <% } else { %>
+                <h2>Bienvenido de vuelta!!, <%= usuario.nom_usu %> :D</h2>
+                <p>Estamos muy felices que retomes este maravilloso mundo de la programación</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

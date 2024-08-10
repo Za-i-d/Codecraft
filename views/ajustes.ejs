@@ -1,0 +1,46 @@
+<%- include("templates/encabezado")%>
+    <div class="container">
+        <div class="container-inicio">
+            <div class="cabeza">
+                <h1>Editar perfil</h1>
+            </div>
+            <div class="contPerfil">
+                <h2>Editar foto de perfil</h2>
+                <form method="post" action="/ajustes" enctype="multipart/form-data">
+                    <div id="perfil">
+                        <img src="<%= usuario.foto_usu %>" alt="avatar" id="img" />
+                    </div>
+                    <input type="file" name="foto" id="foto" accept="image/png" />
+                    <div id="botton">
+                        <label for="foto">Cambiar foto de perfil</label>
+                    </div>
+                    <div class="contInfo">
+                        <h2>Editar informacion de la cuenta</h2>
+                        <input type="hidden" id="ID" name="id_usu" placeholder="ID" value="<%= usuario.id_usu %>">
+                        <p><strong>Nombre :</strong>
+                            <!-- <%= usuario.nom_usu %> -->
+                        </p>
+                        <input type="text" id="nombre" name="nom_usu" placeholder="Nombre" value="<%= usuario.nom_usu %>" required>
+                        <p><strong>Correo :</strong>
+                            <!-- <%= usuario.email %> -->
+                        </p>
+                        <input type="email" id="email" name="email" placeholder="Correo" value="<%= usuario.email %>" required>
+                        <p><strong>Contraseña :</strong>
+                            <!-- <%= usuario.contra %> -->
+                        </p>
+                        <input type="password" id="contra" name="contra" placeholder="Contraseña" value="<%= usuario.contra %>" required>
+                    </div>
+                    <button type="submit" class="guardar-cambios">Guardar cambios</button>
+                </form>
+                <div class="botones">
+                    <a href="/logout"><button class="cerrar">Cerrar sesion</button></a>
+                    <a href="/delete"><button class="delete">Borrar cuenta</button></a>
+                </div>
+                <div class="back">
+                    <a href="/inicio"><button class="regresar"><i class="fa-solid fa-arrow-left"></i></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="image/Logo1.ico" sizes="48x48">
+    <script src="js/login.js" defer></script>
+    <script src="js/perfil.js" defer></script>
+    <title>Registrarse / Iniciar Seccion</title>
+</head>
+<body> 
+    <div class="container-perfil" id="container">
+        <div class="perfil-container sign-in">
+            <form action="/perfil" method="post" id="foto-post" enctype="multipart/form-data">
+                <h1>Crear su foto de perfil</h1>
+                <div id="perfil">
+                    <img src="image/perfil-usuario.png" alt="avatar" id="img" />
+                </div>
+                    <input type="file" name="foto" id="foto" accept="image/png" />
+                    <input type="text" id="nombre" name="nom_usu" placeholder="Nombre" value="<%= usuario.nombre %>" required>
+                    <input type="email" id="email" name="email" placeholder="Correo" value="<%= usuario.email %>" required>
+                    <input type="password" id="contra" name="contra" placeholder="Contraseña" value="<%= usuario.contra %>" required>
+                <div id="botton">
+                    <label for="foto">Cambiar foto de perfil</label>
+                </div>
+                <div id="botton-submit">
+                    <button type="submit">Guardar imagen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

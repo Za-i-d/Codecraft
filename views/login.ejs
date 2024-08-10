@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="image/Logo1.ico" sizes="48x48">
+    <script src="js/login.js" defer></script>
+    <title>Registrarse / Iniciar Seccion</title>
+</head>
+<body> 
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="/" method="post" id="signupForm">
+                <h1>Crea una cuenta</h1>
+                <div class="social-icons">
+                    <a href="#" class="google"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <!-- <a href="#" class="github"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a> -->
+                </div>
+                <span>o usa tu correo para registrarte</span>
+                <input type="hidden" name="form_type" value="signup">
+                <input type="text" name="nom_usu" placeholder="Nombre" required>
+                <span id="nameError" class="error-message"><%= nameError %></span>
+                <input type="email" name="email" placeholder="Correo" required>
+                <span id="emailError" class="error-message"><%= emailError %></span>
+                <input type="password" name="contra" placeholder="Contraseña" required>
+                <span id="passwordError" class="error-message"><%= passwordError %></span>
+                <button type="submit">Registrarse</button>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="/" method="post">
+                <h1>Iniciar Sesion</h1>
+                <div class="social-icons">
+                    <a href="#" class="google"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <!-- <a href="#" class="github"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a> -->
+                </div>
+                <span>o usa tu correo y contraseña para iniciar sesion</span>
+                <input type="hidden" name="form_type" value="signin">
+                <input type="email" name="email" placeholder="Correo" required>
+                <span id="signinEmailError" class="error-message"><%= signinEmailError %></span>
+                <input type="password" name="contra" placeholder="Contraseña" required>
+                <span id="signinPasswordError" class="error-message"><%= signinPasswordError %></span>
+                <a href="#">¿Olvidaste tu contraseña?</a>
+                <button type="submit">Iniciar sesion</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>¿Tienes una cuenta?</h1>
+                    <p>Ingresa tus datos para volver aprender el lenguaje del futuro</p>
+                    <button class="hidden" id="login">Iniciar sesion</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>¿Todavia no tienes una cuenta?</h1>
+                    <p>Registrate con tus datos para aprender el lenguaje del futuro</p>
+                    <button class="hidden" id="register">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
