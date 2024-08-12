@@ -230,13 +230,15 @@
                             </ol>
                             <h4>Cuestionarios evaluativos</h4>
                             <ul>
-                                <li><a href="/cuestionario?nivel=1&actividad=1">Actividad 1 : Estructura Basica</a></li>
-                                <li><a href="/cuestionario?nivel=1&actividad=2">Actividad 2 : Variables, Constantes y
-                                        tipos de datos</a></li>
-                                <li><a href="/cuestionario?nivel=1&actividad=3">Actividad 3 : Operadores</a></li>
-                                <li><a href="/cuestionario?nivel=1&actividad=4">Actividad 4 : Condicionales y Bucles</a>
-                                </li>
-                                <li><a href="/cuestionario?nivel=1&actividad=5">Actividad 5 : Un poco de todo</a></li>
+                                <% if (vidas > 3) { %>
+                                    <li><a href="/cuestionario?nivel=1&actividad=1">Actividad 1</a></li>
+                                    <li><a href="/cuestionario?nivel=1&actividad=2">Actividad 2</a></li>
+                                    <li><a href="/cuestionario?nivel=1&actividad=3">Actividad 3</a></li>
+                                    <li><a href="/cuestionario?nivel=1&actividad=4">Actividad 4</a></li>
+                                    <li><a href="/cuestionario?nivel=1&actividad=5">Actividad 5</a></li>
+                                <% } else { %>
+                                    <span>No tienes vidas restantes. Espera a que se regeneren.</span>
+                                <% } %>
                             </ul>
                         </div>
                     </div>
@@ -346,11 +348,15 @@
 
                             <h4>Acceso al Cuestionario</h4>
                             <ul>
-                                <li><a href="/cuestionario?nivel=2&actividad=1">Actividad 1</a></li>
-                                <li><a href="/cuestionario?nivel=2&actividad=2">Actividad 2</a></li>
-                                <li><a href="/cuestionario?nivel=2&actividad=3">Actividad 3</a></li>
-                                <li><a href="/cuestionario?nivel=2&actividad=4">Actividad 4</a></li>
-                                <li><a href="/cuestionario?nivel=2&actividad=5">Actividad 5</a></li>
+                                <% if (vidas > 3) { %>
+                                    <li><a href="/cuestionario?nivel=2&actividad=1">Actividad 1</a></li>
+                                    <li><a href="/cuestionario?nivel=2&actividad=2">Actividad 2</a></li>
+                                    <li><a href="/cuestionario?nivel=2&actividad=3">Actividad 3</a></li>
+                                    <li><a href="/cuestionario?nivel=2&actividad=4">Actividad 4</a></li>
+                                    <li><a href="/cuestionario?nivel=2&actividad=5">Actividad 5</a></li>
+                                <% } else { %>
+                                    <span>No tienes vidas restantes. Espera a que se regeneren.</span>
+                                <% } %>
                             </ul>
                         </div>
                     </div>
