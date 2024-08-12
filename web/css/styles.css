@@ -844,7 +844,7 @@ ul {
 
 
   /* --------------------------------------------------------[ INICIO ] ------------------------------------------------ */
-  .container-inicio {
+  .container-stats {
     text-align: center;
     color: #fff;
     background: #393f70;
@@ -881,4 +881,25 @@ ul {
 @keyframes fadeIn {
     0% { opacity: 0; transform: translateY(-20px); }
     100% { opacity: 1; transform: translateY(0); }
+}
+
+.card button {
+    position: relative;
+    padding: 10px;
+    top: 60px;
+    border-radius: 20px;
+    background-color: #393f70;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.card button:hover {
+    transform: scale(1.1);
+    background-color: #505aa0;
+    color: #fff;
+    border: none;
+    font-size: 16px;
 }
