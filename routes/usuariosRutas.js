@@ -3,6 +3,9 @@ const multer = require('multer');
 const path = require('path');
 const UsuarioClase = require("../clases/usuarioClase")
 const UsuarioBD = require("../bd/UsuariosBD");
+const verificarVidasMiddleware = require('../bd/vidasMiddleware');
+
+ruta.use(verificarVidasMiddleware);
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -190,11 +193,17 @@ ruta.get("/cursos", async (req,res) =>{
 
 ruta.get("/cuestionario", async(req,res)=>{
     if (req.session.usuarioId) {
-        const usuariobd = new UsuarioBD();
-        const usuario = await usuariobd.buscarID(req.session.usuarioId);
-        res.render("cuestionario", { usuario, isNewUser : req.session.usuarioId });
-    } else{
-        res.redirect("/cursos");
+        const { nivel, actividad } = req.query;
+        if (nivel && actividad) {
+            const usuariobd = new UsuarioBD();
+            const usuario = await usuariobd.buscarID(req.session.usuarioId);
+            const vista = `quest_nivel${nivel}_actividad${actividad}`; // Determinar el nombre de la vista basado en el nivel y la actividad
+            res.render(vista, { usuario, isNewUser: req.session.usuarioId });
+        } else {
+            res.redirect("/cursos");
+        }
+    } else {
+        res.redirect("/");
     }
 })
 
@@ -242,6 +251,43 @@ ruta.post("/ajustes", upload.single('foto'), async (req, res) => {
         res.redirect("/ajustes")
     }
 })
+
+ruta.get("/nosotros", async (req,res) =>{
+    if (req.session.usuarioId) {
+        const usuariobd = new UsuarioBD();
+        const usuario = await usuariobd.buscarID(req.session.usuarioId);
+        res.render("nosotros", { usuario, isNewUser : req.session.usuarioId });
+    } else {
+        res.redirect("/");
+    }
+})
+
+ruta.post("/guardar-resultados", async (req, res) => {
+    try {
+        console.log("Datos a actualizar : ", req.body);
+        if (req.session.usuarioId) {
+            const {id_usu, puntaje, vidas, nivel, actividad } = req.body;
+            const usuariobd = new UsuarioBD();
+            const historial = {
+                vidas,
+                puntaje,
+                nivel,
+                actividad,
+                id_usu
+            };
+            // Supongamos que tienes una función en UsuarioBD para guardar los resultados:
+            await usuariobd.subirHistorial(historial);
+
+            res.redirect("/cursos"); // Redirigir a la página de cursos después de guardar
+        } else {
+            console.log("Error: Usuario no autenticado o ID de usuario no coincide.");
+            res.redirect("/"); // Redirigir al inicio de sesión si no hay autenticación
+        }
+    } catch (error) {
+        console.error("Error al guardar los resultados: ", error);
+        res.redirect("/cuestionario"); // Redirigir al cuestionario si hay un error
+    }
+});
 
 ruta.get("/logout", (req, res) => {
     req.session.destroy((err) => {

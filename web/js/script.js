@@ -1,3 +1,4 @@
+window.onload = setFormValues;
 //seleccionando todos los elementos requeridos
 const start_btn = document.querySelector(".start_btn button");
 const info_box = document.querySelector(".info_box");
@@ -10,6 +11,23 @@ const time_line = document.querySelector("header .time_line");
 const timeText = document.querySelector(".timer .time_left_txt");
 const timeCount = document.querySelector(".timer .timer_sec");
 
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        nivel: params.get('nivel'),
+        actividad: params.get('actividad')
+    };
+}
+
+function setFormValues() {
+    const { nivel, actividad } = getQueryParams();
+    
+    if (nivel && actividad) {
+        document.getElementById('nivel').value = nivel;
+        document.getElementById('actividad').value = actividad;
+    }
+}
+
 // si se hace clic en el botón Iniciar prueba
 
 start_btn.onclick = ()=>{
@@ -19,6 +37,7 @@ start_btn.onclick = ()=>{
 // si se hace clic en el botón Salir del cuestionario
 exit_btn.onclick = ()=>{
     info_box.classList.remove("activeInfo"); //ocultar cuadro de información
+    window.location.href = "/cursos";
 }
 
 // si se hace clic en el botón continuar prueba
@@ -67,8 +86,8 @@ restart_quiz.onclick = ()=>{
 }
 
 // si se hace clic en el botón Salir del cuestionario
-quit_quiz.onclick = ()=>{
-    window.location.reload(); //reload the current window
+quit_quiz.onclick = ()=>{  //reload the current window
+    window.location.href = "/cursos";
 }
 
 const next_btn = document.querySelector("footer .next_btn");
@@ -199,11 +218,18 @@ function nextQuestion() {
     }
 }
 
+
 function showResult(){
     info_box.classList.remove("activeInfo"); //hide info box
     quiz_box.classList.remove("activeQuiz"); //hide quiz box
     result_box.classList.add("activeResult"); //show result box
     const scoreText = result_box.querySelector(".score_text");
+    const form = document.getElementById('resultForm');
+    document.getElementById('puntajeFinal').value = userScore2;
+    document.getElementById('vidasRestantes').value = lives;
+     
+    form.submit(); // Enviar el formulario automáticamente
+
     if (userScore > 3){ // if user scored more than 3
         //creating a new span tag and passing the user score number and total question number
         let scoreTag = '<span> y  Felicidades! 🎉, Tienes <p>'+ userScore +'</p> de <p>'+ questions.length +'</p></span>';
@@ -264,4 +290,3 @@ function queCounter(index){
     let totalQueCounTag = '<span><p>'+ index +'</p> of <p>'+ questions.length +'</p> Preguntas</span>';
     bottom_ques_counter.innerHTML = totalQueCounTag;  //adding new span tag inside bottom_ques_counter
 }
-

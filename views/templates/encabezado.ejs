@@ -17,15 +17,25 @@
         <header>
             <nav>
                 <div class="logos">
-                    <a href="index.html" class="logotipo"><img src="Image/Logo.png" alt="" class="logo"></a>
+                    <a href="/inicio" class="logotipo"><img src="Image/Logo.png" alt="" class="logo"></a>
                     <h1 class="codecraft">CodeCraft</h1>
+                </div>
+                <div class="vidas-info">
+                    <span>
+                        Vidas: 
+                        <% for (let i = 0; i < vidas; i++) { %>
+                            <i class="fa-solid fa-heart"></i>
+                        <% } %>
+                    </span>
+                    <% if (tiempoRestante > 0) { %>
+                        <span>Tiempo para próxima vida: <%= tiempoRestante %> segundos</span>
+                    <% } %>
                 </div>
                 <div class="menu">
                     <ul>
                         <li><a href="/inicio" id="inicio">Inicio</a></li>
                         <li><a href="/cursos" id="cursos">Cursos</a></li>
-                        <!-- <li><a href="comunidad.html" id="comunidad">Comunidad</a></li> -->
-                        <li class="ajuste">
+                        <!-- <li class="ajuste">
                             <a href="ajustes.html" id="ajustes">Ajustes
                                 <span class="arrow-down">
                                     <i class="fa-solid fa-caret-down"></i>
@@ -36,7 +46,8 @@
                                 <li>opcion 2</li>
                                 <li>opcion 3</li>
                             </ul>
-                        </li>
+                        </li> -->
+                        <li><a href="/nosotros">Conocenos</a></li>
                         <li><a href="/ajustes"> <img src="<%= usuario.foto_usu %>" alt="foto-de-perfil" id="foto-perfil"></a></li>
                         <!-- <i class="fa-solid fa-user fa-2xl"></i> -->
                     </ul>

@@ -1,14 +1,29 @@
 <%- include("templates/encabezado")%>
-    <div class="container">
-        <div class="container-inicio">
-            <% if (isNewUser) { %>
-                <h2>Bienvenido a CodeCraft, <%= usuario.nom_usu %>!!</h2>
-                <p>Estamos muy felices que empieces a descubrir este maravilloso mundo de la programación</p>
-            <% } else { %>
+<div class="container">
+    <div class="container-inicio">
+        <% if (isNewUser) { %>
+            <h2>Bienvenido a CodeCraft, <%= usuario.nom_usu %>!!</h2>
+            <p>Estamos muy felices que empieces a descubrir este maravilloso mundo de la programación</p>
+            <p>Por favor ingrese a la ventana de cursos desde la barra de navegación o desde <a href="/cursos">aqui</a></p>
+        <% } else { %>
+            <div class="welcome-back">
                 <h2>Bienvenido de vuelta!!, <%= usuario.nom_usu %> :D</h2>
                 <p>Estamos muy felices que retomes este maravilloso mundo de la programación</p>
-            <% } %>
-        </div>
+            </div>
+            <div class="stats">
+                <div class="card">
+                    <h3>Puntaje actual:</h3>
+                    <span><%= usuario.puntaje %></span>
+                </div>
+                <div class="card">
+                    <h3>Nivel y actividad que cursaste anteriormente:</h3>
+                    <p>Nivel: <%= usuario.nivel %></p>
+                    <p>Actividad: <%= usuario.actividad %></p>
+                    <a href="/cursos"><button>Ir a los cursos</button></a>
+                </div>
+            </div>
+        <% } %>
     </div>
+</div>
 </body>
 </html>

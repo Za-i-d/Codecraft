@@ -1,44 +1,572 @@
 <%- include("templates/encabezado") %>
     <div class="container">
         <div class="cursos">
-            <div class="container-inicio">
-                <h2>Curso de C++</h2>
-                <h3>Niveles:</h3>
+            <div class="container-inicio container-cursos">
+                <h1>Curso de C++</h1>
+                <h2>Niveles:</h2>
                 <div class="niveles">
                     <div class="nivel" data-nivel="1">
-                        <h4>Nivel 1</h4>
+                        <h3>Nivel 1 : Introduccion a C++</h3>
+                        <p>Aqui aprenderas sobre los conceptos basico de C++, desde la estructura basica hasta
+                            condicionales y
+                            bucles</p>
                         <div class="actividades" id="actividades-nivel-1">
+                            <h4>¿Que es C++?</h4>
+                            <p>C++ es un lenguaje de programación de propósito general, creado por Bjarne Stroustrup
+                                como una extensión del lenguaje C. Es utilizado para desarrollar software de sistema,
+                                aplicaciones y videojuegos, entre otros.</p>
+                            <h4>La historia de C++</h4>
+                            <p>C++ fue creado por Bjarne Stroustrup en 1979 en Bell Labs como una extensión del lenguaje
+                                C.
+                                Inicialmente llamado "C con Clases", fue renombrado a C++ en 1983, donde "++" simboliza
+                                la mejora y adición de nuevas características.
+                                C++ es un lenguaje de programación de propósito general que soporta la programación
+                                orientada a objetos, la programación genérica, y la programación procedimental.</p>
+                            <h4>Estructura basica de C++</h4>
+                            <p>Un programa en C++ se compone de varias partes que trabajan en conjunto para realizar una
+                                tarea específica.</p>
+                            <ol>
+                                <li>
+                                    <strong>Inclusión de cabeceras:</strong>
+                                    <p>Al inicio del programa, se incluyen las cabeceras necesarias utilizando la
+                                        directiva #include.
+                                        Las cabeceras proporcionan al compilador información sobre funciones, clases y
+                                        otras entidades predefinidas que se utilizarán en el programa.
+                                        Ejemplo: #include < iostream> incluye la cabecera estándar para entrada/salida,
+                                            que permite utilizar funciones como cin y cout.</p>
+                                </li>
+                                <li>
+                                    <strong>Declaracion del espacio de nombres:</strong>
+                                    <p>Los espacios de nombres sirven para organizar el
+                                        código y evitar conflictos de nombres.
+                                        El espacio de nombres std (standard) contiene la mayoría de los elementos
+                                        estándar
+                                        de C++.
+                                        Ejemplo: using namespace std; indica que se utilizarán los elementos del espacio
+                                        de
+                                        nombres std sin necesidad de escribir std:: antes de cada uno.</p>
+                                </li>
+                                <li>
+                                    <strong>Funcion :</strong>
+                                    <p>La función main() es el punto de entrada de cualquier programa en C++.
+                                        Es donde comienza la ejecución del programa.
+                                        Ejemplo: int main() { ... } declara una función main() que devuelve un valor
+                                        entero.</p>
+                                </li>
+                                <li>
+                                    <strong>Cuerpo del programa :</strong>
+                                    <p>El cuerpo del programa se encuentra dentro de las llaves {} de la función main().
+                                        Aquí se escriben las instrucciones que el programa debe ejecutar.</p>
+                                    <p>Ejemplo :</p>
+                                    <p>
+                                    <div class="ejemplos">
+                                        <code>
+                                                <span>
+                                                    <p><span class="include">#include</span><span class="string"> < iostream ></span></p><br>
+    
+                                                    <p><span class="include">using namespace </span>std;</p><br>
+                                                    
+                                                    <p><span class="main">int main( )</span> {</p>
+                                                        <p class="code">cout << <span class="string">"Este es un simple programa en C++."</span> << endl;</p>
+                                                        <p class="code"><span class="include">return</span><span class="int"> 0</span>;</p>
+                                                }</span>
+                                        </code>
+                                    </div>
+                                    <div class="ejemplos">
+                                        <p>Resultado : <span class="string">Este es un simple programa en C++</span></p>
+                                    </div>
+                                    </p>
+                                </li>
+                            </ol>
+                            <h4>Variables y constantes</h4>
+                            <p>Se utilizan para almacenar datos. Se deben declarar su tipo y nombre antes de usarlas.
+                            </p>
+                            <ol>
+                                <li>
+                                    <strong>Variables :</strong>
+                                    <p>Es un contenedor de datos que puede cambiar durante la ejecución del programa.
+                                    </p>
+                                </li>
+                                <li>
+                                    <strong>Constantes :</strong>
+                                    <p>Es un valor que no puede cambiar una vez definido. Se declara usando la palabra
+                                        clave "const".</p>
+                                </li>
+                            </ol>
+                            <h4>Tipos de datos</h4>
+                            <p>Los tipos de datos primitivos son los más básicos en cualquier lenguaje de programación,
+                                y C++ no es la excepción. Estos tipos representan los valores más simples que puede
+                                almacenar una variable.</p>
+                            <ol>
+                                <li>
+                                    <strong>int: </strong>
+                                    <p>Representa números enteros. Su tamaño puede variar dependiendo de la
+                                        implementación, pero comúnmente ocupa 4 bytes.</p>
+                                </li>
+                                <li>
+                                    <strong>float :</strong>
+                                    <p>Representa números de punto flotante (con decimales) de precisión simple.</p>
+                                </li>
+                                <li>
+                                    <strong>double :</strong>
+                                    <p>Representa números de punto flotante de doble precisión.</p>
+                                </li>
+                                <li>
+                                    <strong>char :</strong>
+                                    <p>Representa un solo carácter. Se encierra entre comillas simples.</p>
+                                </li>
+                                <li>
+                                    <strong>string :</strong>
+                                    <p>Representa una serie de caracteres. Se encierra entre comillas dobles</p>
+                                    <p>Nota : <span>A diferencia de otros lenguajes de programacion, C++ es una clase
+                                            que se encuentra en la biblioteca estandar. Para usuarlo debes de importar
+                                            la libreria <span class="include">#include</span> <span class="string">
+                                                < string>
+                                            </span>
+                                        </span></p>
+                                </li>
+                                <li>
+                                    <strong>boleanos :</strong>
+                                    <p>Representa valores lógicos, verdadero (true) o falso (false).</p>
+                                </li>
+                            </ol>
+                            <h4>Operadores Aritméticos, Lógicos y de Comparación</h4>
+                            <p>Los operadores son herramientas fundamentales en cualquier lenguaje de programación, y
+                                C++ no es la excepción. Sirven para realizar diversas operaciones sobre los datos, desde
+                                cálculos matemáticos básicos hasta comparaciones lógicas más complejas.</p>
+                            <ol>
+                                <li>
+                                    <strong>Operadores Aritmeticos :</strong>
+                                    <p>
+                                        Estos operadores se utilizan para realizar operaciones matemáticas básicas.
+                                    <ul>
+                                        <li>Suma: +</li>
+                                        <li>Resta: -</li>
+                                        <li>Multiplicacion: *</li>
+                                        <li>Division: /</li>
+                                        <li>Modulo: % (devuelve el residuo de una division)</li>
+                                    </ul>
+                                    </p>
+                                </li>
+                                <li>
+                                    <strong>Operadores Comparativos :</strong>
+                                    <p>Estos operadores se utilizan para comparar valores y devolver un resultado
+                                        booleano (verdadero o falso).
+                                    <ul>
+                                        <li>Igualdad: ==</li>
+                                        <li>Desigualdad: !=</li>
+                                        <li>Mayor que: ></li>
+                                        <li>Menor que: << /li>
+                                        <li>Mayor o igual que: >=</li>
+                                        <li>Menor o igual que: <=< /li>
+                                    </ul>
+                                    </p>
+                                </li>
+                                <li>
+                                    <strong>Operadores Lógicos</strong>
+                                    <p>Estos operadores se utilizan para combinar expresiones booleanas.
+                                    <ul>
+                                        <li>Y lógico (AND): &&</li>
+                                        <li>O lógico (OR): ||</li>
+                                        <li>Negación (NOT): !</li>
+                                    </ul>
+                                    </p>
+                                </li>
+                            </ol>
+                            <h4>Condicionales y Bucles</h4>
+                            <p>Los condicionales y los bucles son estructuras de control fundamentales en cualquier
+                                lenguaje de programación, y C++ no es la excepción. Estas estructuras nos permiten
+                                controlar el flujo de ejecución de un programa, tomando decisiones y repitiendo bloques
+                                de código según ciertas condiciones.</p>
+                            <ol>
+                                <li>
+                                    <strong>if: </strong>
+                                    <p>Se ejecuta un bloque de código si la condición es verdadera.</p>
+                                </li>
+                                <li>
+                                    <strong>else :</strong>
+                                    <p>Se ejecuta un bloque de código si la condición es falsa.</p>
+                                </li>
+                                <p>
+                                <div class="ejemplos">
+                                    <code>
+                                            <span>
+                                                <p><span class="include">int </span>edad = <span class="int">18</span>;</p>
+                                                <p><span class="include">if </span>(edad >= <span class="int">18</span>) {</p>
+                                                <p class="code">cout << <span class="string">"Eres mayor de edad."</span> << endl;</p>
+                                                <p>}<span class="include"> else </span>{</p>
+                                                <p class="code">cout << <span class="string">"Eres menor de edad."</span> << endl;</p>
+                                                }
+                                            </span>
+                                        </code>
+                                </div>
+                                <div class="ejemplos">
+                                    <p>Resultado : <span class="string">Eres mayor de edad</span></p>
+                                </div>
+                                </p>
+                                <li>
+                                    <strong>else if :</strong>
+                                    <p>Permite encadenar múltiples condiciones.</p>
+                                </li>
+                            </ol>
+                            <h4>Bucles en C++</h4>
+                            <p>Los bucles nos permiten repetir un bloque de código varias veces. C++ ofrece varios tipos
+                                de bucles:</p>
+                            <ol>
+                                <li>
+                                    <strong>while :</strong>
+                                    <p>Es un bucle que ejecuta un bloque de código mientras una condición sea verdadera.
+                                    </p>
+                                </li>
+                                <li>
+                                    <strong>do-while :</strong>
+                                    <p>Similar a while, pero el bloque de código se ejecuta al menos una vez antes de
+                                        verificar la condición.</p>
+                                </li>
+                                <li>
+                                    <strong>for :</strong>
+                                    <p>Se utiliza cuando se sabe de antemano cuántas veces se va a repetir el bucle.</p>
+                                </li>
+                            </ol>
+                            <h4>Cuestionarios evaluativos</h4>
                             <ul>
-                                <li><a href="/cuestionario">Actividad 1</a></li>
-                                <li>Actividad 2</li>
-                                <li>Actividad 3</li>
-                                <li>Actividad 4</li>
-                                <li>Actividad 5</li>
+                                <li><a href="/cuestionario?nivel=1&actividad=1">Actividad 1 : Estructura Basica</a></li>
+                                <li><a href="/cuestionario?nivel=1&actividad=2">Actividad 2 : Variables, Constantes y
+                                        tipos de datos</a></li>
+                                <li><a href="/cuestionario?nivel=1&actividad=3">Actividad 3 : Operadores</a></li>
+                                <li><a href="/cuestionario?nivel=1&actividad=4">Actividad 4 : Condicionales y Bucles</a>
+                                </li>
+                                <li><a href="/cuestionario?nivel=1&actividad=5">Actividad 5 : Un poco de todo</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="nivel" data-nivel="2">
-                        <h4>Nivel 2</h4>
+                        <h3>Nivel 2 : Clases y Herencias</h3>
+                        <p>Aqui aprenderas sobre los conceptos de clases en, sus derivaciones y la herencia de clases
+                        </p>
                         <div class="actividades" id="actividades-nivel-2">
+                            <h4>¿Qué es una clase?</h4>
+                            <p>Una clase en C++ es una plantilla o plano que define las propiedades y comportamientos de
+                                un conjunto de objetos similares. Piensa en una clase como una receta de cocina: la
+                                receta te dice qué ingredientes necesitas (atributos) y qué pasos seguir (métodos) para
+                                crear un plato. De manera similar, una clase agrupa datos (atributos) y funciones
+                                (métodos) que operan sobre esos datos. Cada vez que creas un objeto basado en esa clase,
+                                es como seguir la receta para crear una instancia del plato.</p>
+
+                            <p>Las clases permiten organizar el código de manera modular, facilitando la reutilización y
+                                el mantenimiento. Cada clase puede representar una entidad real del mundo o una
+                                abstracción, como un cliente, un producto, un archivo, o incluso una conexión de red.
+                            </p>
+
+                            <h4>Definición de una clase en C++</h4>
+                            <p>En C++, la definición de una clase comienza con la palabra clave <code>class</code>
+                                seguida del nombre de la clase. Dentro de las llaves que definen la clase, declaras los
+                                atributos (variables) y los métodos (funciones). Por convención, los nombres de las
+                                clases comienzan con una letra mayúscula para diferenciarlas fácilmente de los nombres
+                                de variables y funciones.</p>
+                            <p>A continuación se muestra un ejemplo básico de cómo definir una clase en C++:</p>
+                            <div class="ejemplos">
+                                <code>
+                                        class MiClase {
+                                            <p class="code">public:</p>
+                                            <p class="code">int miNumero;</p>
+                                            <p class="code">void miFuncion() {</p>
+                                        }
+                                    };</code>
+                            </div>
+                            <h4>Crear y utilizar objetos</h4>
+                            <p>Una vez que has definido una clase, puedes crear objetos, que son instancias de esa
+                                clase. Cada objeto tiene su propia copia de los atributos definidos en la clase, lo que
+                                significa que los atributos pueden tener valores diferentes en diferentes objetos. Aquí
+                                tienes un ejemplo de cómo crear y utilizar un objeto en C++:</p>
+                            <div class="ejemplos">
+                                <code>
+                                        <p>MiClase miObjeto;  // Crear un objeto de la clase MiClase</p>
+                                        <p>miObjeto.miNumero = 5;  // Asignar un valor al atributo miNumero del objeto</p>
+                                        <p>miObjeto.miFuncion();  // Llamar al método miFuncion del objeto</p>
+                                    </code>
+                            </div>
+                            <p>En este ejemplo, se crea un objeto llamado <code>miObjeto</code> de la clase
+                                <code>MiClase</code>. Luego, se asigna el valor <code>5</code> al atributo
+                                <code>miNumero</code> del objeto, y se llama al método <code>miFuncion</code>. Es
+                                importante notar que cada objeto creado a partir de una clase es independiente de los
+                                demás; cambiar el valor de <code>miNumero</code> en <code>miObjeto</code> no afecta a
+                                ningún otro objeto creado a partir de la misma clase.
+                            </p>
+                            <h4>Constructores y Destructores</h4>
+                            <p>En C++, un constructor es una función especial que se llama automáticamente cuando se
+                                crea un objeto de la clase. Los constructores se utilizan para inicializar los atributos
+                                del objeto, asegurando que comiencen con valores válidos. Puedes definir un constructor
+                                dentro de tu clase, y puedes tener múltiples constructores con diferentes parámetros
+                                (esto se llama sobrecarga de constructores).</p>
+                            <p>Un destructor, por otro lado, es una función especial que se llama automáticamente cuando
+                                un objeto de la clase se destruye (por ejemplo, cuando sale del alcance o se elimina
+                                explícitamente). Los destructores se utilizan para liberar recursos que el objeto pudo
+                                haber adquirido durante su vida, como memoria dinámica o conexiones de archivos.</p>
+                            <p>Aquí tienes un ejemplo que incluye un constructor y un destructor:</p>
+                            <div class="ejemplos">
+                                <code>
+                                    class MiClase {
+                                    <p>public:</p>
+                                    <p class="code">
+                                        int miNumero;
+        
+                                        // Constructor
+                                        MiClase(int n) {
+                                            miNumero = n;  // Inicializar el atributo con el valor pasado al constructor
+                                        }
+        
+                                        // Destructor
+                                        ~MiClase() {
+                                            // Código para liberar recursos si es necesario
+                                        }
+                                    </p>
+                                    };
+                                </code>
+                            </div>
+                            <p>En este ejemplo, el constructor toma un parámetro <code>n</code> y lo utiliza para
+                                inicializar el atributo <code>miNumero</code>. Cuando creas un objeto de esta clase,
+                                puedes pasar un valor inicial para <code>miNumero</code> de la siguiente manera:</p>
+                            <pre><code>MiClase miObjeto(10);  // Crear un objeto y asignar 10 a miNumero</code></pre>
+
+                            <h4>Modificadores de acceso: public, private y protected</h4>
+                            <p>En C++, los modificadores de acceso determinan quién puede acceder a los atributos y
+                                métodos de una clase. Los tres modificadores principales son:</p>
                             <ul>
-                                <li>Actividad 1</li>
-                                <li>Actividad 2</li>
-                                <li>Actividad 3</li>
-                                <li>Actividad 4</li>
-                                <li>Actividad 5</li>
+                                <li><code>public</code>: Los miembros de la clase declarados como públicos pueden ser
+                                    accedidos desde cualquier parte del programa.</li>
+                                <li><code>private</code>: Los miembros privados solo pueden ser accedidos desde dentro
+                                    de la misma clase. No pueden ser accedidos directamente desde fuera de la clase.
+                                </li>
+                                <li><code>protected</code>: Los miembros protegidos pueden ser accedidos desde dentro de
+                                    la misma clase y por las clases derivadas (que heredan de la clase base).</li>
+                            </ul>
+                            <p>El uso adecuado de estos modificadores es clave para la encapsulación, que se discutirá
+                                en mayor detalle en el siguiente nivel.</p>
+
+                            <h4>Acceso al Cuestionario</h4>
+                            <ul>
+                                <li><a href="/cuestionario?nivel=2&actividad=1">Actividad 1</a></li>
+                                <li><a href="/cuestionario?nivel=2&actividad=2">Actividad 2</a></li>
+                                <li><a href="/cuestionario?nivel=2&actividad=3">Actividad 3</a></li>
+                                <li><a href="/cuestionario?nivel=2&actividad=4">Actividad 4</a></li>
+                                <li><a href="/cuestionario?nivel=2&actividad=5">Actividad 5</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="nivel" data-nivel="3">
-                        <h4>Nivel 3</h4>
+                        <h3>Nivel 3 : Encapsulamiento y Polimorfismo</h3>
+                        <p>Aqui aprenderas sobre el encapsulamientos de datos y el polimorfismo de clases</p>
                         <div class="actividades" id="actividades-nivel-3">
+                            <h4>¿Qué es el encapsulamiento?</h4>
+                            <p>El encapsulamiento es uno de los principios fundamentales de la programación
+                                orientada a objetos. Se refiere a la capacidad de una clase para ocultar sus datos
+                                internos y solo exponer una interfaz controlada para interactuar con esos datos.
+                                Esto se logra utilizando modificadores de acceso como <code>private</code>,
+                                <code>protected</code>, y <code>public</code>.
+                            </p>
+
+                            <p>El propósito principal del encapsulamiento es proteger la integridad de los datos
+                                dentro de un objeto. Al hacer que los atributos de una clase sean privados, puedes
+                                asegurarte de que solo puedan ser modificados a través de métodos específicos que
+                                hayas definido, lo que permite validar los cambios antes de que se apliquen.</p>
+
+                            <p>Por ejemplo, en un sistema bancario, podrías tener una clase
+                                <code>CuentaBancaria</code> con un atributo <code>saldo</code>. El
+                                <code>saldo</code> debería ser un atributo privado, ya que no quieres que cualquier
+                                parte del código pueda cambiar el saldo sin pasar por las verificaciones de
+                                seguridad adecuadas. En su lugar, proporcionarías métodos públicos como
+                                <code>depositar</code> y <code>retirar</code>, que controlan cómo se modifican los
+                                fondos en la cuenta.
+                            </p>
+
+                            <h4>Ejemplo de Encapsulamiento en C++</h4>
+                            <p>A continuación, te muestro un ejemplo de cómo se implementa el encapsulamiento en
+                                C++:</p>
+                            <div class="ejemplos">
+                                <code>
+                                        class CuentaBancaria {
+                                            <p>private:</p>
+                                            <p class="code">double saldo;  // Atributo privado</p>
+                                        public:
+                                            // Constructor para inicializar el saldo
+                                            <p class="code">
+                                                CuentaBancaria(double s) {
+                                                    if (s >= 0) {
+                                                        saldo = s;
+                                                    } else {
+                                                        saldo = 0;
+                                                    }
+                                                }
+            
+                                                // Método para depositar dinero
+                                                void depositar(double cantidad) {
+                                                    if (cantidad > 0) {
+                                                        saldo += cantidad;
+                                                    }
+                                                }
+            
+                                                // Método para retirar dinero
+                                                bool retirar(double cantidad) {
+                                                    if (cantidad > 0 && cantidad <= saldo) {
+                                                        saldo -= cantidad;
+                                                        return true;
+                                                    } else {
+                                                        return false;
+                                                    }
+                                                }
+            
+                                                // Método para consultar el saldo
+                                                double obtenerSaldo() {
+                                                    return saldo;
+                                                }
+                                            </p>
+                                        };
+                                    </code>
+                            </div>
+                            <p>En este ejemplo, el atributo <code>saldo</code> es privado, lo que significa que no
+                                puede ser modificado directamente desde fuera de la clase. Los métodos
+                                <code>depositar</code>, <code>retirar</code>, y <code>obtenerSaldo</code> son
+                                públicos, lo que permite a otras partes del programa interactuar con el saldo de
+                                manera controlada y segura.
+                            </p>
+
+                            <h4>¿Qué es el polimorfismo?</h4>
+                            <p>El polimorfismo es otro pilar de la programación orientada a objetos y se refiere a
+                                la capacidad de una función, un método o un objeto para tomar múltiples formas. En
+                                C++, el polimorfismo se manifiesta principalmente de dos maneras: a través de la
+                                sobrecarga de funciones (polimorfismo en tiempo de compilación) y a través de las
+                                funciones virtuales y la herencia (polimorfismo en tiempo de ejecución).</p>
+
+                            <p>El polimorfismo en tiempo de compilación se logra mediante la sobrecarga de funciones
+                                y operadores. Esto permite definir varias versiones de una función con el mismo
+                                nombre, pero con diferentes tipos o números de parámetros. Dependiendo de los
+                                argumentos que se pasen a la función, el compilador decide cuál versión de la
+                                función se debe ejecutar.</p>
+
+                            <h4>Ejemplo de Polimorfismo en Tiempo de Compilación</h4>
+                            <p>Un ejemplo de sobrecarga de funciones en C++ sería el siguiente:</p>
+                            <div class="ejemplos">
+                                <code>
+                                    class Operaciones {
+                                        <p>public:</p>
+                                        <p class="code">
+                                            int sumar(int a, int b) {
+                                                return a + b;
+                                            }
+                                            <p class="code">
+                                                double sumar(double a, double b) {
+                                                    return a + b;
+                                                }
+                                            </p>
+                                        </p>
+                                    };
+                                </code>
+                            </div>
+                            <p>En este ejemplo, la clase <code>Operaciones</code> tiene dos métodos
+                                <code>sumar</code>, uno que suma enteros y otro que suma números de punto flotante.
+                                Según los argumentos que pases, el compilador seleccionará automáticamente la
+                                versión correcta del método.
+                            </p>
+
+                            <h4>Polimorfismo en Tiempo de Ejecución</h4>
+                            <p>El polimorfismo en tiempo de ejecución, por otro lado, se logra a través de funciones
+                                virtuales y herencia. Cuando una clase base declara una función como virtual, las
+                                clases derivadas pueden sobrescribir esta función para cambiar su comportamiento.
+                                Luego, cuando se llama a la función a través de un puntero o referencia a la clase
+                                base, la versión de la función que se ejecuta depende del tipo del objeto al que
+                                apunta el puntero en tiempo de ejecución.</p>
+
+                            <h4>Ejemplo de Polimorfismo en Tiempo de Ejecución</h4>
+                            <p>Aquí tienes un ejemplo que ilustra este concepto:</p>
+                            <div class="ejemplos">
+                                <code>
+                                    class Forma {
+                                    <p>public:</p>
+                                    <p class="code">
+                                        virtual void dibujar() {
+                                            cout << "Dibujar forma genérica" << endl;
+                                        }
+                                    </p>
+                                    <p>
+                                    };
+                                    class Circulo : public Forma {
+                                    <p>public:</p>
+                                    <p class="code">
+                                        void dibujar() override {
+                                            cout << "Dibujar círculo" << endl;
+                                        }
+                                    </p>
+                                    };
+                                    class Cuadrado : public Forma {
+                                    <p>public:</p>
+                                    <p class="code">
+                                        void dibujar() override {
+                                            cout << "Dibujar cuadrado" << endl;
+                                        }
+                                    </p>
+                                    };
+                                    </p>
+                                </code>
+                            </div>
+                            <p>En este ejemplo, la clase <code>Forma</code> tiene una función virtual
+                                <code>dibujar</code>. Las clases <code>Circulo</code> y <code>Cuadrado</code>
+                                derivan de <code>Forma</code> y sobrescriben el método <code>dibujar</code> para
+                                proporcionar implementaciones específicas. Si tienes un puntero a <code>Forma</code>
+                                que apunta a un objeto <code>Circulo</code> o <code>Cuadrado</code>, la función
+                                <code>dibujar</code> correcta se llamará en tiempo de ejecución dependiendo del tipo
+                                de objeto al que realmente apunta.
+                            </p>
+                            <p>Este comportamiento permite que los programas sean más flexibles y extensibles, ya
+                                que puedes tratar diferentes tipos de objetos de manera uniforme, mientras cada
+                                objeto puede comportarse de forma distinta según su tipo real.</p>
+                            <h4>Cuestionarios evaluativos</h4>
                             <ul>
-                                <li>Actividad 1</li>
-                                <li>Actividad 2</li>
-                                <li>Actividad 3</li>
-                                <li>Actividad 4</li>
-                                <li>Actividad 5</li>
+                                <% if (vidas > 3) { %>
+                                    <li><a href="/cuestionario?nivel=3&actividad=1">Actividad 1</a></li>
+                                    <li><a href="/cuestionario?nivel=3&actividad=2">Actividad 2</a></li>
+                                    <li><a href="/cuestionario?nivel=3&actividad=3">Actividad 3</a></li>
+                                    <li><a href="/cuestionario?nivel=3&actividad=4">Actividad 4</a></li>
+                                    <li><a href="/cuestionario?nivel=3&actividad=5">Actividad 5</a></li>
+                                <% } else { %>
+                                    <span>No tienes vidas restantes. Espera a que se regeneren.</span>
+                                <% } %>
                             </ul>
+                        </div>
+                    </div>
+                    <div class="nivel" data-nivel="0">
+                        <h3>Material Adicional</h3>
+                        <div class="actividades" id="actividades-nivel-0">
+                            <p>Sabemos lo dificil que puede llegar a ser aprender a programar sin mucha ayuda. Asi que
+                                te recomendaremos videos sobre la programacion que tu pueden ayudar mucho</p>
+                            <h4>Videos: </h4>
+                            <div class="videos">
+                                <iframe width="460" height="315"
+                                    src="https://www.youtube.com/embed/MEuZICEDLJo?si=QlJc0-9vkNDE9zkD"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                                <p>Creador del contenido : <a href="https://www.youtube.com/@AbsoluteSite">Absolute</a>
+                                </p>
+                                <iframe width="460" height="315"
+                                    src="https://www.youtube.com/embed/0NPFJ73Pmu0?si=8IQbICoSw9FfUqBL"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                                <p>Creador del contenido : <a href="https://www.youtube.com/@AbsoluteSite">Absolute</a>
+                                </p>
+                                <iframe width="460" height="315"
+                                    src="https://www.youtube.com/embed/sQLn2asTefo?si=jcXyu5gdkl1SLuv3"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                </iframe>
+                                <p>Creador del contenido : <a href="https://www.youtube.com/@AbsoluteSite">Absolute</a>
+                                    & <a
+                                        href="https://www.youtube.com/channel/UCqs6fKCKeNlzsOZAJFMsLAg">ElTallerDeTD</a>
+                            </div>
                         </div>
                     </div>
                 </div>

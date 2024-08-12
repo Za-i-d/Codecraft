@@ -86,6 +86,55 @@ class UsuarioBD {
             if (connection) await ConectarBD.releaseConnection(connection);
         }
     }
+
+    async subirHistorial(his) {
+        const sql = "UPDATE usuarios SET vidas = ?, puntaje = puntaje + ?, nivel = ?, actividad = ? WHERE id_usu = ?;";
+        let connection;
+        try {
+            connection = await ConectarBD.getConnection();
+            console.log("Valores a actualizar:", {
+                vidas: his.vidas,
+                puntaje: his.puntaje,
+                nivel: his.nivel,
+                actividad: his.actividad,
+                id_usu: his.id_usu
+            });
+            await connection.execute(sql, [his.vidas, his.puntaje, his.nivel, his.actividad, his.id_usu])
+            console.log("Resultados subidos exitosamente");
+        } catch (error) {
+            console.error("Se produjo un error al guardar los resultados: ", error);
+        } finally {
+            if (connection) await ConectarBD.releaseConnection(connection);
+        }
+    }
+
+    async verificarVidas(id_usu) {
+        const sql = "SELECT vidas, ultima_perdida FROM usuarios WHERE id_usu = ?";
+        let connection;
+        try {
+            connection = await ConectarBD.getConnection();
+            const [rows] = await connection.execute(sql, [id_usu]);
+            if (rows.length === 0) return null;
+            const { vidas, ultima_perdida } = rows[0];
+    
+            const tiempoRegeneracion = 5 * 60 * 1000; // 5 minutos en milisegundos
+            const tiempoRestante = tiempoRegeneracion - (Date.now() - new Date(ultima_perdida).getTime());
+    
+            // Regenerar vidas si ha pasado el tiempo de regeneración
+            if (vidas < 3 && tiempoRestante <= 0) {
+                const nuevasVidas = vidas + 1;
+                await connection.execute("UPDATE usuarios SET vidas = ?, ultima_perdida = NOW() WHERE id_usu = ?", [nuevasVidas, id_usu]);
+                return { vidas: nuevasVidas, tiempoRestante: 0 };
+            }
+    
+            return { vidas, tiempoRestante };
+        } catch (error) {
+            console.error("Error al verificar las vidas: ", error);
+            return null;
+        } finally {
+            if (connection) await ConectarBD.releaseConnection(connection);
+        }
+    }
 }
 
 module.exports = UsuarioBD;
